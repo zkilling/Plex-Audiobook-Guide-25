@@ -1,5 +1,5 @@
 # Plex & Booksonic Audiobook Guide
-This guide is specifically for optimal Audiobook experience using Plex, which in it's current state only quasi-supports audiobooks. This is my method for processing large libraries with bad/missing tags as quick as possible while getting the most metadata into Plex in the least amount of time.  I'll be doing a deep dive into some advanced features of the tools available to us in order to get a nice, clean, and functional UI. This guide is meant to serve as a framework for fully utilizing metadata.  Everything is customizable, and easy to change.  While focused on Plex, if you follow the tagging and file processing steps you will also be compatible with Booksonic and AudiobookShelf servers.
+This guide is forked off the seanap guide wich has gone dormant. While wishing for optimal Audiobook experience using Plex, which in it's current state only quasi-supports audiobooks. This is my method for processing large libraries with bad/missing tags as quick as possible while getting the most metadata into Plex in the least amount of time.  I'll be doing a deep dive into some advanced features of the tools available to us in order to get a nice, clean, and functional UI. This guide is meant to serve as a framework for fully utilizing metadata.  Everything is customizable, and easy to change.  While focused on Plex, if you follow the tagging and file processing steps you will also be compatible with Booksonic and AudiobookShelf servers.
 
 > ***Note**: This guide targets and has been tested on Windows systems. Most of it also works on Linux/Mac but the Mp3tag Audible WebSource script only works on Windows. For workarounds see [issue #2](/../../issues/2).*
 ### Contents
@@ -23,7 +23,7 @@ This guide is specifically for optimal Audiobook experience using Plex, which in
 * [Notes](#notes)
 
 ### Goal
-Show as much metadata as possible in Plex &amp; Booksonic.  Filter/browse/search by Narrator, Author, Genre, Year, Series, Rating, or Publisher.  Show Album Covers and Summary's. Make the organizing and tagging as quick and painless as possible. We need to do these 4 general steps:  
+Keep a Uniform metadata and file structure. While showing as much as possible in Plex &amp; Prologue.  Filter/browse/search by Narrator, Author, Genre, Year, Series, Rating, or Publisher.  Show Album Covers and Summary's. Make the organizing and tagging as quick and painless as possible. We need to do these 4 general steps:  
 
 0. (Optional) Convert mp3's to chapterized m4b.  
 1. Ensure the ALBUM and ALBUMARTIST (or ARTIST) tags are set and correct.  
@@ -48,8 +48,8 @@ Show as much metadata as possible in Plex &amp; Booksonic.  Filter/browse/searc
 <!-- blank line -->
 
 ### Backing up your Audible books
-I plan on having a seprate walkthrough that will take you through backing up your Audible .aax files, and converting them to chapterized .M4B files. This guide will work for both mp3 and m4b files, but I prefer chapterized m4b's.  Plex handles M4B metadata better than mp3's, some third party players like Prologue and BookCamp can handle the M4B chapter splits and names, and generally having less files helps plex run smoother.  
-
+I have been using [Open Audible](https://openaudible.org/) on MacOS (does support windows and linux) to backup my audible books. ($22-$70) When liscenced you can pull down metadata complete chaptered m4b files and feed them right into mp3tag to rename and move the file. You can also convert to mp3 but Plex handles M4B metadata better than mp3's, some third party players like Prologue and BookCamp can handle the M4B chapter splits and names, and generally having less files helps plex run smoother. 
+ 
 For some more Software resources for Audible-centric audiobook management, including removing DRM from Audible files check out [@rmcrackan](https://github.com/rmcrackan)'s [AudiobookHub](https://github.com/rmcrackan/AudiobookHub)
 
 Now that you have your files, let get them in a format Plex can handle so we can stream our whole library with our firends and family.
@@ -58,18 +58,18 @@ Now that you have your files, let get them in a format Plex can handle so we can
 
 ### Working folders
 I have 3 working directories for my Audiobooks:
-* `~/Original` Folder where I keep the un-altered original audio Files  
+* `~/Original` Folder where I keep the un-altered original audio Files before they are conveted and properly tagged. 
 * `~/temp` Folder where I copy the audio files that need to be processed, this is the folder Mp3tag will open by default  
 * `~/Audiobooks` Folder where I archive my properly tagged files in the proper folder structure, this is the folder I point Plex at
 
 > Anywhere these folders are referenced, make sure to update to your specific paths
 
-Best Practice: Tag your files *before* adding them to Plex.
+Best Practice: Tag your files *before* adding them to Plex. If you mess up you have to move the files outside the directory "scan libuary files" Then "Manage Libuary" > "Empty Trash" on your Audiobook Directory in plex. I recomend correcting all this outside plex so if you ever lose your plex setup you wont have to fix all your audiobooks. 
 <!-- blank line -->
 ----
 <!-- blank line -->
 ### (Optional) Automatically copy untagged Audiobook files to a temp folder
-Optional: This step is only required if you want to preserve the original unedited Audiobook files. This is required if you are seeding torrents, for example from librivox.org. That said, this is a recommended step for everyone, just incase something goes horribly wrong with Mp3tag or copying files.
+Optional: This step is only required if you want to preserve the original unedited Audiobook files. This is required if you are seeding torrents, for example from librivox.org. That said, this is a recommended step for everyone, just incase something goes horribly wrong with Mp3tag or copying files. 
 
 <details>
 <summary>What I want to achieve with this step: (click to expand)</summary>
@@ -157,8 +157,10 @@ Let's face it, Large Libraries Sink Ships. Everything runs quicker, and smoother
 
 If you use both Linux and Windows, I have a Linux script that watches your `/original` folder for newly added mp3 audiobooks and converts them to M4b files with chapters separated by mp3 file.  It's pretty slick.
 
+If your trying to find a less technical route MacOS has [Audiobook Builder 2](https://apps.apple.com/us/app/audiobook-builder-2/id1437681957?mt=12) ($10) you cant automate it, but its a solid fast way to combine and chapterize mp3's into a m4b. There are limits to files sizes tho so if you listen to books over 18 hours it will require splitting files. 
+
 * Creating and Installing auto-m4b-tool script guide  
-  * https://github.com/seanap/Auto-M4B-Tool#m4b-tool-automation  
+  * https://github.com/seanap/Auto-M4B-Tool#m4b-tool-automation
 
 ---
 
@@ -172,7 +174,7 @@ If you use both Linux and Windows, I have a Linux script that watches your `/ori
 ![alt text](https://i.imgur.com/R2lh1YH.png "Default Directory")  
 
 #### Download my example configuration files to Mp3tag's Appdata directory  
-* Download my repo by clicking [Here](https://github.com/seanap/Plex-Audiobook-Guide/archive/master.zip).  
+* Download my repo by clicking ~.  
   * Alternatively, click the green 'Code' dropdown button at the top of this Github page and select “Download Zip”.  
 * The `Mp3tag` folder will be located in the zip archive. Unzip the archive.  
 * Open the `Plex-Audiobook-Guide` folder
@@ -184,14 +186,20 @@ If you use both Linux and Windows, I have a Linux script that watches your `/ori
   * `%APPDATA%\Mp3tag\data\action\&1 Rename Relocate Extras Title.mta` Update lines 3, 15, 22 with the path to your Plex `\Audiobook` folder  
   * `%APPDATA%\Mp3tag\export\001 Generate.mte` Update line 1 with your windows username `C:\Users\your-username-here\...`  
   * `%APPDATA%\Mp3tag\export\desc.mte` Update line 1 with the path to your Plex `\Audiobook` folder  
-  * `%APPDATA%\Mp3tag\export\reader.mte` Update line 1 with the path to your Plex `\Audiobook` folder  
+  * `%APPDATA%\Mp3tag\export\reader.mte` Update line 1 with the path to your Plex `\Audiobook` folder
+ 
+* If you need to use a more complex paths
+  * `%APPDATA%\Mp3tag\data\action\&1 Rename Relocate Extras Title.mta` Update lines 3, 15, 22 with the path to your Plex `E:\\Media Keep\\Audiobooks\\%albumartist%\` folder  
+  * `%APPDATA%\Mp3tag\export\001 Generate.mte` Update line 1 with your windows username `C:\Users\your-username-here\...`  
+  * `%APPDATA%\Mp3tag\export\desc.mte` Update line 1 with the path to your Plex `E:\Media Keep\Audiobooks\%albumartist%` folder  
+  * `%APPDATA%\Mp3tag\export\reader.mte` Update line 1 with the path to your Plex `E:\Media Keep\Audiobooks\%albumartist%` folder
 
 <details>
 <summary>Alternatively, you can manually create and configure mp3tag to your specific needs (click to expand)</summary>
 <br>
 
 #### Install the Audible custom web sources  
-  * [Download](https://github.com/seanap/Audible.com-Search-by-Album/archive/master.zip) the custom web source files
+  * [Download](https://github.com/zkilling/Audible.com-Search-by-Album-25/archive/master.zip) the custom web source files
   * Drop the `Audible.com#Search by Album.src` file in your `%appdata%\Roaming\Mp3tag\data\sources` folder
 
 #### Cofigure the `Tag Panel`
@@ -376,7 +384,7 @@ Once you have mp3tag, Audiobook metadata agent, and Plex configured the work flo
 
 Following this guide will also give you everything you need for a properly organized AudiobookShelf and Booksonic server.  While Plex doesn't really care about your folder structure beyond `/Audiobook/Author/Book/book.mp3`, Booksonic exclusively uses folder structure for it's organization and it also looks for `cover.jpg`/`desc.txt`/`reader.txt` files (automatically created with the Action script) for additional metadata.
 
-I currently use [BookCamp](https://www.bookcamp.app/) ($12/yr), it is *miles* better than the Plex app and PlexAmp and works on both iOS and Android, but if you are on iOS then Prologue is the preferred option.
+I currently use [Prologue]([https://www.bookcamp.app/](https://apps.apple.com/us/app/prologue/id1459223267)) ($5-$10), it works well and when downloaded I have never had issues with it no working. You do have to pay an extra $5 for the apple watch app. 
 
 <!-- blank line -->
 ----
