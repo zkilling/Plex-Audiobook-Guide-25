@@ -1,7 +1,7 @@
 # Plex & Booksonic Audiobook Guide
 This guide is forked off the seanap guide wich has gone dormant. While wishing for optimal Audiobook experience using Plex, which in it's current state only quasi-supports audiobooks. This is my method for processing large libraries with bad/missing tags as quick as possible while getting the most metadata into Plex in the least amount of time.  I'll be doing a deep dive into some advanced features of the tools available to us in order to get a nice, clean, and functional UI. This guide is meant to serve as a framework for fully utilizing metadata.  Everything is customizable, and easy to change.  While focused on Plex, if you follow the tagging and file processing steps you will also be compatible with Booksonic and AudiobookShelf servers.
 
-> ***Note**: This guide targets and has been tested on Windows systems. Most of it also works on Linux/Mac but the Mp3tag Audible WebSource script only works on Windows. For workarounds see [issue #2](/../../issues/2).*
+> ***Note**: This guide targets and has been tested on Windows systems and MacOS. Most of it also works on Linux but MP3Tag is not avalible on Linux. 
 ### Contents
 * [Goal](#goal)
 * [Working Folders](#working-folders)  
@@ -52,6 +52,7 @@ I have been using [Open Audible](https://openaudible.org/) on MacOS (does suppor
  
 For some more Software resources for Audible-centric audiobook management, including removing DRM from Audible files check out [@rmcrackan](https://github.com/rmcrackan)'s [AudiobookHub](https://github.com/rmcrackan/AudiobookHub)
 
+Please also consider using more sustainable sources for your favorite books. Brandon Sanderson Called Audible Out in [2022](https://www.brandonsanderson.com/blogs/blog/state-of-the-sanderson-2022) With [Audible stealing](https://www.reddit.com/r/audiobooks/comments/1mzzl1g/audible_is_stealing_money_from_your_favorite/) more and more money from authors its imporatnt to purchase from sources that better support our favorite Authors. Sites like [Libro.fm](https://libro.fm/howitworks) or Direct from studios like [Soundbooth Theature](https://soundbooth.app/) are great and libro.fm even lets you download the files directly without needing aditional software.
 Now that you have your files, let get them in a format Plex can handle so we can stream our whole library with our firends and family.
 
 ----
@@ -389,4 +390,3 @@ I currently use [Prologue]([https://www.bookcamp.app/](https://apps.apple.com/us
 <!-- blank line -->
 ----
 <!-- blank line -->
-<a href="https://www.buymeacoffee.com/seanap" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-green.png" alt="Buy Me A Book" height="41" width="174"></a>
